@@ -309,6 +309,7 @@ def check_pending_pr_checks(index: int):
         if passing:
             if module['auto_merge'] & ('AUTO MERGE' in pull_request.title):
                 if not codecov_complete:
+                    print('Codecov check validation fail, return to wait')
                     # Wait till the codecov checks pass before merge
                     return
                 try:
